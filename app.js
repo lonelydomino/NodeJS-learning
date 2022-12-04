@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //MIDDLEWARE
 app.use((req, res, next) => {
-  User.findById('638cfecf0f8bf76b96903a5b')
+  User.findById('638cff9017798f6c69b6274d')
     .then(user => {
       req.user = user
       next()
