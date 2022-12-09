@@ -29,7 +29,7 @@ exports.getProduct = (req, res, next) => {
         isAuthenticated: req.session.isLoggedIn
       })
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
 }
 
 exports.getIndex = (req, res, next) => {
@@ -39,13 +39,14 @@ exports.getIndex = (req, res, next) => {
         prods: products,
         pageTitle: 'Shop',
         path: '/',
-        isAuthenticated: req.session.isLoggedIn
+        isAuthenticated: req.session.isLoggedIn,
+        csrfToken: req.csrfToken()
       })
     })
     .catch(err => {
-      console.log(err);
-    });
-};
+      console.log(err)
+    })
+}
 
 exports.getCart = (req, res, next) => {
   req.user
@@ -60,8 +61,8 @@ exports.getCart = (req, res, next) => {
         isAuthenticated: req.session.isLoggedIn
       })
     })
-    .catch(err => console.log(err));
-};
+    .catch(err => console.log(err))
+}
 
 exports.postCart = (req, res, next) => {
   const prodId = req.body.productId
